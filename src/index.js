@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import './css/bootstrap.min.css'
 // import App from './App';
 import HashRouterPro from "./router";
 import reportWebVitals from './reportWebVitals';

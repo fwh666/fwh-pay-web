@@ -9,6 +9,10 @@
 
 
 # 启动环境:
+- node : v14.17.6
+- npm : 6.14.15
+
+
 - npm i axios
 - npm i react-router-dom
 - npm i react-router-native

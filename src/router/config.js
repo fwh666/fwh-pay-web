@@ -1,18 +1,10 @@
 import App from '../pages/app/app.js';
 import PaymentPage from "../pages/pay/PaymentPage";
 import MyPage from "../pages/home/MyPage";
-import Home from "../pages/home/Home";
+import Product from "../pages/product/Product";
+import Buy from "../pages/pay/Buy";
 
 export default [
-    // {
-    //     path: '/',
-    //     element: <App />,
-    // },
-    // {
-    //     path: '/view',
-    //     element: <View />,
-    // }
-    //
     {
         path: '/App',
         element: <App/>,
@@ -24,5 +16,7 @@ export default [
     {
         path: '/',
         element: <MyPage/>
+        // element: <Product/>
+        // element: <Buy/>
     }
 ]

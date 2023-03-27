@@ -3,7 +3,7 @@ import {Helmet} from 'react-helmet';
 
 import Header from "./header";
 import Footer from "./footer";
-import AppTest from "./AppTest";
+import Main from "./Main";
 
 class MyPage extends React.Component {
     render() {
@@ -22,7 +22,7 @@ class MyPage extends React.Component {
                     <Header/>
                 </header>
                 <main>
-                    <AppTest/>
+                    <Main/>
                 </main>
                 <footer>
                     <Footer/>
