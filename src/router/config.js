@@ -1,6 +1,7 @@
-import View from '../pages/view/view';
-import App from  '../pages/app/app.js';
+import App from '../pages/app/app.js';
 import PaymentPage from "../pages/pay/PaymentPage";
+import MyPage from "../pages/home/MyPage";
+import Home from "../pages/home/Home";
 
 export default [
     // {
@@ -14,10 +15,14 @@ export default [
     //
     {
         path: '/App',
-        element: <App />,
+        element: <App/>,
+    },
+    {
+        path: '/Payment',
+        element: <PaymentPage/>,
     },
     {
         path: '/',
-        element: <PaymentPage />,
+        element: <MyPage/>
     }
 ]

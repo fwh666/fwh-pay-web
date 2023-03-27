@@ -1,6 +1,29 @@
+# 待办事项:
+1. 首页搭建: 
+   - 需要页头目录-标题目录
+   - 页尾联系方式-联系方式
+2. 商品详情页:  商品介绍页\跳转到支付页\
+3. 支付页: 二维码等信息
+4. 支付完成页面- 发送账号信息到邮箱
+5. 所有页面内容的样式如何快速实现?
+
+
 # 启动环境:
--  npm  install 
-- npm start
+- npm i axios
+- npm i react-router-dom
+- npm i react-router-native
+- npm install antd@4.16.13 --save
+
+> 如果出现问题,重新安装.
+```shell
+rm -rf node_modules
+rm package-lock.json
+npm install
+
+```
+
+
+
 
 # Getting Started with Create React App
 
