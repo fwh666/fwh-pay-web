@@ -23,6 +23,7 @@ export default [
     },
     {
         path: '/',
+        // element: <App/>
         // element: <HomeTest/>
         element: <MyPage/>
         // element: <Product/>

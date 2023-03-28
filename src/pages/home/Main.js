@@ -93,7 +93,7 @@ function Main() {
                     <p> 支持各个终端的链接使用</p>
                     <p> QQ: 767137738 备注:VPN特惠 </p>
                     <img className="img_footer"
-                         src="https://leanoss.fuwenhao.club/64x7mvtvuSJ5n6ha0xgQsNqb0iWMmanq/VPN01.png"
+                         src="https://leanoss.fuwenhao.club/WHR6SsulRQjJKTk8y4wBaOTCXOFdM9Da/vpn04.png"
                          alt="使用教程"/>
                 </div>
             </div>
