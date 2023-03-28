@@ -1,22 +1,22 @@
 import React, {useState} from 'react';
-import QRCode from 'qrcode.react';
 import './PaymentPage.css';
 import {Button} from 'antd'
 import Header from "../home/header";
 import Footer from "../home/footer";
-import axios from 'axios';
 import instance from '../../utils/network';
 
 function PaymentPage() {
     const [amount, setAmount] = useState(19.9); // 订单金额
-
+    let qr_code = ''
     const pay = () => {
         // 调用支付接口
-        // ...
-        // axios.get('http:/127.0.0.1:8090/pay/getPayQrCode')
-        //     .then(response => console.log(response.data))
-        //     .catch(error => console.error(error));
-        instance.post('/api/pay/getPayQrCode').then(response => console.log(response.data))
+        instance.get('/api/pay/getPayQrCode').then((response) => {
+            console.log('响应：', response);
+            qr_code = response
+        })
+    }
+    const payment = () => {
+        instance.get('/api/pay/getWebPay');
     }
 
     return (
@@ -25,9 +25,9 @@ function PaymentPage() {
                 <Header/>
             </header>
             <div className="Payment">
-                <div className="QR_code">
-                    <QRCode value="二维码内容"/>
-                </div>
+                {/*<div className="QR_code">*/}
+                {/*    <QRCode value={qr_code}/>*/}
+                {/*</div>*/}
                 <div className="PayTip">
                     <p>请使用支付宝扫码支付：¥{amount}</p>
                 </div>
@@ -39,7 +39,8 @@ function PaymentPage() {
                     <p>商品名称： ChatGPT独享号</p>
                     <p>购买数量： 1</p>
                 </div>
-                <Button onClick={pay} type="primary" size="large">
+                {/*如何调用接口回显重定向页面？*/}
+                <Button onClick={payment} type="primary" size="large">
                     确认付款
                 </Button>
                 <Button onClick={pay} type="primary" size="large">
