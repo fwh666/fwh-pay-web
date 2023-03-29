@@ -6,6 +6,7 @@ import Buy from "../pages/pay/Buy";
 import HomeTest from "../pages/test/HomeTest";
 import {Route} from "react-router-dom";
 import About from "../pages/about/About";
+import Alipay from "../pages/pay/Alipay";
 
 // 所有页面路由的映射路径
 export default [
@@ -20,6 +21,10 @@ export default [
     {
         path: '/paymentPage',
         element: <PaymentPage/>,
+    },
+    {
+        path: '/alipay',
+        element: <Alipay/>
     },
     {
         path: '/',

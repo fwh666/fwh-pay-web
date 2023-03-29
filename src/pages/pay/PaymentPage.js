@@ -4,10 +4,25 @@ import {Button} from 'antd'
 import Header from "../home/header";
 import Footer from "../home/footer";
 import instance from '../../utils/network';
+import Alipay from "./Alipay";
+import {useNavigate} from 'react-router-dom';
+
 
 function PaymentPage() {
+    /*重定向变量*/
+    // const [redirect, setRedirect] = useState(false);
+    // const history = useHistory();
+
+    //定义跳转函数
+    const navigate = useNavigate();
+    function handleBuyClick() {
+        navigate("/alipay");
+    }
+
+
     const [amount, setAmount] = useState(19.9); // 订单金额
     let qr_code = ''
+    /*二维码链接*/
     const pay = () => {
         // 调用支付接口
         instance.get('/api/pay/getPayQrCode').then((response) => {
@@ -15,8 +30,16 @@ function PaymentPage() {
             qr_code = response
         })
     }
+
+    /*支付页面*/
     const payment = () => {
-        instance.get('/api/pay/getWebPay');
+        instance.get('/api/pay/getWebPay')
+            // .then(response => {
+            //     if (response.redirected) {
+            //         setRedirect(true);
+            //     }
+            //     return response.json();
+            // })
     }
 
     return (
@@ -43,7 +66,7 @@ function PaymentPage() {
                 <Button onClick={payment} type="primary" size="large">
                     确认付款
                 </Button>
-                <Button onClick={pay} type="primary" size="large">
+                <Button onClick={handleBuyClick} type="primary" size="large">
                     重新选择
                 </Button>
                 {/*    todo-fwh-点击完成后-  返回商品  等待付款中(持续调用查询状态 -参考https://www.zuuu.net/links/F95AF00A)*/}
