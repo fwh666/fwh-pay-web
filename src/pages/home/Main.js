@@ -51,18 +51,17 @@ function Main() {
                             </h1>
                             <ul className="list-unstyled mt-3 mb-4">
                                 <li>VPN特惠账号</li>
-                                <li>限时特惠价格: ¥19.9</li>
+                                <li className="special_font">限时特惠价格: ¥19.9</li>
                                 <li>永久有效时长</li>
                                 <li>加密保护，畅享全球</li>
                                 <li>支持账号返利</li>
                                 <li>支持流量无限签到增加</li>
                                 <li>.</li>
                                 <li>.</li>
-                                <li>.</li>
                             </ul>
                             {/*<a type="button" href="accounts.html" className="w-100 btn btn-lg btn-primary"*/}
                             {/*   target="_blank">立即购买</a>*/}
-                            <Button type="primary" htmlType="submit" className="w-100 btn btn-lg btn-primary"
+                            <Button type="primary" htmlType="submit" className="w-100 btn btn-lg btn-primary buy_font"
                                     onClick={handleBuyClick}> 立即购买 </Button>
 
                         </div>
@@ -76,8 +75,8 @@ function Main() {
                     <h2 className="fw-normal">客服服务</h2>
                     <p>购买以及售前问题; 登陆账号以及密码邮箱形式发送; 账号售出无法找回;</p>
                     <p> QQ: 767137738 备注:VPN特惠 </p>
-                    <img className="img_footer"
-                         src="https://leanoss.fuwenhao.club/64x7mvtvuSJ5n6ha0xgQsNqb0iWMmanq/VPN01.png"
+                    <img className="img_qq_footer"
+                         src="https://leanoss.fuwenhao.club/4O2mEP65RMp6H9OICismpcMNVDDEs7tI/QQ01.png"
                          alt="客服微信"/>
                 </div>
                 <div className="col-lg-4">

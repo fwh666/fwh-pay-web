@@ -34,7 +34,7 @@ function Header() {
                 <div className="collapse navbar-collapse justify-content-end mt-1" id="navbarNav">
                     <div className="navbar-nav">
                         {/*<a className="me-3 py-2 text-dark text-decoration-none" href="accounts.html">账号购买</a>*/}
-                        <Button type="text" className="me-3 py-2 text-dark text-decoration-none"
+                        <Button type="text" className="me-3 py-2 text-dark text-decoration-none buy_account_font"
                                 onClick={handleBuyClick}>账号购买</Button>
                         {/*<a className="me-3 py-2 text-dark text-decoration-none" href="gpt.html">套餐购买</a>*/}
                     </div>

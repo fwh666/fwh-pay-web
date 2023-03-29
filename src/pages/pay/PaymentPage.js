@@ -34,12 +34,7 @@ function PaymentPage() {
     /*支付页面*/
     const payment = () => {
         instance.get('/api/pay/getWebPay')
-            // .then(response => {
-            //     if (response.redirected) {
-            //         setRedirect(true);
-            //     }
-            //     return response.json();
-            // })
+
     }
 
     return (
@@ -52,24 +47,20 @@ function PaymentPage() {
                 {/*    <QRCode value={qr_code}/>*/}
                 {/*</div>*/}
                 <div className="PayTip">
-                    <p>请使用支付宝扫码支付：¥{amount}</p>
+                    <p>支付宝扫码支付：¥{amount}</p>
                 </div>
                 <div className="PayTip">
                     <p>支付方式：支付宝扫码</p>
                 </div>
                 <div className="PayTip">
                     <p>订单编号： Z23032815809JKLA</p>
-                    <p>商品名称： ChatGPT独享号</p>
+                    <p>商品名称： VPN特惠账号</p>
                     <p>购买数量： 1</p>
                 </div>
-                {/*如何调用接口回显重定向页面？*/}
-                <Button onClick={payment} type="primary" size="large">
+                {/*如何调用接口回显重定向页面？TODO-fwh-填写邮箱入口发送账号信息*/}
+                <Button onClick={handleBuyClick} type="primary" size="large">
                     确认付款
                 </Button>
-                <Button onClick={handleBuyClick} type="primary" size="large">
-                    重新选择
-                </Button>
-                {/*    todo-fwh-点击完成后-  返回商品  等待付款中(持续调用查询状态 -参考https://www.zuuu.net/links/F95AF00A)*/}
             </div>
             <footer>
                 <Footer/>

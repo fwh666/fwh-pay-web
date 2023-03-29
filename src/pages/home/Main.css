@@ -1,3 +1,9 @@
+.img_qq_footer {
+    width: 200px;
+    height: 300px;
+    margin: auto 0;
+}
+
 .img_footer {
     width: 500px;
     height: 300px;
@@ -6,7 +12,17 @@
 
 .special_font {
     font-size: 20px;
+    font-weight: bold;
     color: red;
+}
+
+.buy_font {
+    height: 50px;
+}
+
+.buy_account_font {
+    font-weight: 500;
+    font-size: x-large;
 }
 
 /*去除底部滚动条样式 待验证*/

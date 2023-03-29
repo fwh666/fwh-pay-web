@@ -9,20 +9,17 @@ class Footer extends React.Component {
                     <div className="col-12 col-md text-left">
                         <small className="d-block mb-3 text-muted">Marvin工作室 &copy; 2023 版权所有</small>
                         <small className="d-block mb-3 text-muted">
-                            <p><a href="https://beian.miit.gov.cn">蜀ICP备2021019761号-7</a> All Rights Reserved</p>
+                            <p><a href="sitemap.xml">站点地图</a></p>
                         </small>
-                        {/*<small className="d-block mb-3 text-muted">*/}
-                        {/*    <p><a href="sitemap.xml">站点地图</a></p>*/}
-                        {/*</small>*/}
 
                     </div>
                     <div className="col-12 col-md">
                         <p>
-                            客服QQ: 2701018233
+                            客服QQ: 767137738
                         </p>
                         <p>
                             QQ交流群: <a target="_blank" href="https://jq.qq.com/?_wv=1027&amp;k=EvmBYr0C"
-                                         className="text-decoration-none">133346510</a>
+                                         className="text-decoration-none">652661150</a>
                         </p>
                     </div>
                 </div>
