@@ -8,6 +8,10 @@
     /* TODO-样式间距 */
 }
 
+.font_red {
+    color: red;
+}
+
 .QR_code {
     width: 200px;
     height: 200px;
