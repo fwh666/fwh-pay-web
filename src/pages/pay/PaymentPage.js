@@ -7,11 +7,25 @@ import Footer from "../home/footer";
 
 function PaymentPage() {
     //定义变量
-    const [formData, setFormData] = useState({name: ''});
+    const [email, setEmail] = useState("");
+    const [isValid, setIsValid] = useState(false);
+    //邮箱校验
+    const handleEmailChange = (e) => {
+        setEmail(e.target.value);
+        setIsValid(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e.target.value));
+    };
+
     //支付页面调用
     const handleSubmit = (event) => {
         event.preventDefault();
-        const url = `/api/pay/getWebPay?email=${formData.name}`;
+        //邮箱校验
+        if (isValid) {
+            // 在这里进行提交操作
+            console.log("Email格式验证通过");
+        } else {
+            alert("请输入正确的邮箱地址"); // 若Email格式验证不通过，弹出提示框
+        }
+        const url = `/api/pay/getWebPay?email=${email}&orderNo=${orderNumber}`;
         fetch(url)
             .then(response => response.text())
             .then((data) => {
@@ -30,7 +44,30 @@ function PaymentPage() {
     }
 
 
-    const [amount, setAmount] = useState(19.9); // 订单金额
+    let startTimestamp = Date.UTC(2021, 0, 1, 0, 0, 0, 0);
+
+    let sequence = 0;
+    let lastTimestamp = 0;
+
+    function generateOrderNumber() {
+        let now = new Date().getTime();
+        let timestamp = Math.floor((now - startTimestamp) / 100);
+        if (timestamp === lastTimestamp) {
+            sequence = (sequence + 1) & 0xFFF;
+            if (sequence === 0) {
+                timestamp++;
+            }
+        } else {
+            sequence = 0;
+        }
+        lastTimestamp = timestamp;
+        let orderNumber = ((timestamp << 12) + sequence).toString().padStart(14, '0');
+        orderNumber = orderNumber.substr(2);
+        return orderNumber;
+    }
+    //订单金额
+    const [amount, setAmount] = useState(19.9);
+    const [orderNumber, setOrderNumber] = useState(generateOrderNumber);
 
     return (
         <main>
@@ -48,23 +85,24 @@ function PaymentPage() {
                 <Form onFinish={handleSubmit}>
                     <Form.Item>
                         <div className="PayTip">
-                            <p>订单编号： Z23032815809JKLA</p>
+                            <p>订单编号： {orderNumber}</p>
                             <p>商品名称： VPN特惠账号</p>
                             <p>购买数量： 1</p>
                             <p><span className="font_red">*</span>接收账号邮箱：
                                 <Space direction={"vertical"} size={"middle"}>
                                     <Input placeholder="example@gmail.com"
-                                           defaultValue={"zhangsan@163.com"}
-                                           value={formData.name}
-                                           onChange={(e) => setFormData({...formData, name: e.target.value})}
-                                           type={"email"}
+                                        // value={formData.name}
+                                        // onChange={(e) => setFormData({...formData, name: e.target.value})}
+                                           value={email}
+                                           onChange={handleEmailChange}
+                                           type="email"
                                            required
                                            size={"large"}/>
                                 </Space>
                             </p>
                         </div>
                         {/*<Button onClick={handleBuyClick} type="submit" size="large">*/}
-                        <Button onClick={handleSubmit} type="submit" size="large">
+                        <Button onClick={handleSubmit} disabled={!isValid} type="submit" size="large">
                             确认付款
                         </Button>
                     </Form.Item>
