@@ -49,21 +49,26 @@ function PaymentPage() {
     let sequence = 0;
     let lastTimestamp = 0;
 
+    // function generateOrderNumber() {
+    //     let now = new Date().getTime();
+    //     let timestamp = Math.floor((now - startTimestamp) / 100);
+    //     if (timestamp === lastTimestamp) {
+    //         sequence = (sequence + 1) & 0xFFF;
+    //         if (sequence === 0) {
+    //             timestamp++;
+    //         }
+    //     } else {
+    //         sequence = 0;
+    //     }
+    //     lastTimestamp = timestamp;
+    //     let orderNumber = ((timestamp << 12) + sequence).toString().padStart(14, '0');
+    //     orderNumber = orderNumber.substr(2);
+    //     return orderNumber;
+    // }
     function generateOrderNumber() {
-        let now = new Date().getTime();
-        let timestamp = Math.floor((now - startTimestamp) / 100);
-        if (timestamp === lastTimestamp) {
-            sequence = (sequence + 1) & 0xFFF;
-            if (sequence === 0) {
-                timestamp++;
-            }
-        } else {
-            sequence = 0;
-        }
-        lastTimestamp = timestamp;
-        let orderNumber = ((timestamp << 12) + sequence).toString().padStart(14, '0');
-        orderNumber = orderNumber.substr(2);
-        return orderNumber;
+        const timestamp = Date.now().toString(); // 当前时间的毫秒数
+        const random = Math.floor(Math.random() * 1000).toString().padStart(3, '0'); // 生成一个三位随机数
+        return timestamp + random; // 组合成最终的订单号
     }
     //订单金额
     const [amount, setAmount] = useState(19.9);
