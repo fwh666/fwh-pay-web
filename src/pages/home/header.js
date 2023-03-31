@@ -8,8 +8,15 @@ function Header() {
     //定义跳转函数
     const navigate = useNavigate();
 
+
+    //购买详情页
     function handleBuyClick() {
         navigate("/paymentPage");
+    }
+
+    //使用教程
+    function handleUseClick() {
+        window.open("https://go.runba.cyou/doc/#/Windows/V2RayN", "_blank");
     }
 
     return (
@@ -34,9 +41,12 @@ function Header() {
                 <div className="collapse navbar-collapse justify-content-end mt-1" id="navbarNav">
                     <div className="navbar-nav">
                         {/*<a className="me-3 py-2 text-dark text-decoration-none" href="accounts.html">账号购买</a>*/}
-                        <Button type="text" className="me-3 py-2 text-dark text-decoration-none buy_account_font"
-                                onClick={handleBuyClick}>账号购买</Button>
                         {/*<a className="me-3 py-2 text-dark text-decoration-none" href="gpt.html">套餐购买</a>*/}
+                        <Button type="text" className="me-3 py-2 text-dark text-decoration-none buy_account_font"
+                                onClick={handleUseClick}>使用教程</Button>
+                        <Button type="text"
+                                className="me-3 py-2 text-dark text-decoration-none buy_account_font"
+                                onClick={handleBuyClick}>账号购买</Button>
                     </div>
                 </div>
             </div>
