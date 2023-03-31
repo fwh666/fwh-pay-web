@@ -27,6 +27,10 @@ export default [
         element: <Alipay/>
     },
     {
+        path: '/user',
+        element: "www.baidu.com"
+    },
+    {
         path: '/',
         // element: <App/>
         // element: <HomeTest/>

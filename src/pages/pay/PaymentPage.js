@@ -30,46 +30,28 @@ function PaymentPage() {
             .then(response => response.text())
             .then((data) => {
                 console.log('data:', data);
-                const formElement = document.createElement("div");
-                formElement.style.display = "display:none;";
-                formElement.innerHTML = data;//去到from
-                if (formElement.firstChild) {
-                    formElement.firstChild.target = "_self";
-                    document.body.appendChild(formElement);
-                    formElement.firstChild.submit();//进行跳转
-                    document.body.removeChild(formElement);
+                //成功标识才跳转页面
+                if (data.includes('action')) {
+                    const formElement = document.createElement("div");
+                    formElement.style.display = "display:none;";
+                    formElement.innerHTML = data;//去到from
+                    if (formElement.firstChild) {
+                        formElement.firstChild.target = "_self";
+                        document.body.appendChild(formElement);
+                        formElement.firstChild.submit();//进行跳转
+                        document.body.removeChild(formElement);
+                    }
                 }
             })
-            .catch(error => console.log(error));
+            .catch(error => console.log('error:', error));
     }
 
-
-    let startTimestamp = Date.UTC(2021, 0, 1, 0, 0, 0, 0);
-
-    let sequence = 0;
-    let lastTimestamp = 0;
-
-    // function generateOrderNumber() {
-    //     let now = new Date().getTime();
-    //     let timestamp = Math.floor((now - startTimestamp) / 100);
-    //     if (timestamp === lastTimestamp) {
-    //         sequence = (sequence + 1) & 0xFFF;
-    //         if (sequence === 0) {
-    //             timestamp++;
-    //         }
-    //     } else {
-    //         sequence = 0;
-    //     }
-    //     lastTimestamp = timestamp;
-    //     let orderNumber = ((timestamp << 12) + sequence).toString().padStart(14, '0');
-    //     orderNumber = orderNumber.substr(2);
-    //     return orderNumber;
-    // }
     function generateOrderNumber() {
         const timestamp = Date.now().toString(); // 当前时间的毫秒数
         const random = Math.floor(Math.random() * 1000).toString().padStart(3, '0'); // 生成一个三位随机数
         return timestamp + random; // 组合成最终的订单号
     }
+
     //订单金额
     const [amount, setAmount] = useState(19.9);
     const [orderNumber, setOrderNumber] = useState(generateOrderNumber);
@@ -96,8 +78,6 @@ function PaymentPage() {
                             <p><span className="font_red">*</span>接收账号邮箱：
                                 <Space direction={"vertical"} size={"middle"}>
                                     <Input placeholder="example@gmail.com"
-                                        // value={formData.name}
-                                        // onChange={(e) => setFormData({...formData, name: e.target.value})}
                                            value={email}
                                            onChange={handleEmailChange}
                                            type="email"
@@ -106,8 +86,7 @@ function PaymentPage() {
                                 </Space>
                             </p>
                         </div>
-                        {/*<Button onClick={handleBuyClick} type="submit" size="large">*/}
-                        <Button onClick={handleSubmit} disabled={!isValid} type="submit" size="large">
+                        <Button onClick={handleSubmit} disabled={!isValid} type="primary" size="large">
                             确认付款
                         </Button>
                     </Form.Item>
