@@ -31,7 +31,7 @@ function PaymentPage() {
             .then((data) => {
                 console.log('data:', data);
                 //成功标识才跳转页面
-                if (data.includes('action')) {
+                if (data.includes('<form')) {
                     const formElement = document.createElement("div");
                     formElement.style.display = "display:none;";
                     formElement.innerHTML = data;//去到from
