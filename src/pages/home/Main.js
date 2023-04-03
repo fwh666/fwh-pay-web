@@ -76,7 +76,7 @@ function Main() {
                     <p>购买以及售前问题; 登陆账号以及密码邮箱形式发送; 账号售出无法找回;</p>
                     <p> QQ: 767137738 备注:VPN特惠 </p>
                     <img className="img_qq_footer"
-                         src="https://leanoss.fuwenhao.club/4O2mEP65RMp6H9OICismpcMNVDDEs7tI/QQ01.png"
+                         src="https://leanoss.fuwenhao.club/hnOyb1hCGIj0529tJConakjg1tlsaoTY/QQ02.png"
                          alt="客服微信"/>
                 </div>
                 <div className="col-lg-4">

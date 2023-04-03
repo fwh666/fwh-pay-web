@@ -31,7 +31,7 @@ function PaymentPage() {
             .then((data) => {
                 console.log('data:', data);
                 //成功标识才跳转页面
-                if (data.includes('action')) {
+                if (data.includes('<form')) {
                     const formElement = document.createElement("div");
                     formElement.style.display = "display:none;";
                     formElement.innerHTML = data;//去到from
@@ -62,6 +62,9 @@ function PaymentPage() {
                 <Header/>
             </header>
             <div className="Payment">
+                <div className="alert alert-danger fw-bold p-2 mt-2" role="alert">
+                    支付完毕请等不要关闭页面，待系统跳转回页面
+                </div>
                 <div className="PayTip">
                     <p>支付宝扫码支付：¥{amount}</p>
                 </div>
