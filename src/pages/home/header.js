@@ -1,8 +1,9 @@
 import React from 'react';
 import './Main.css'
-import {Button} from "antd";
+import {Button, Dropdown, Menu} from "antd";
 import {useNavigate} from "react-router-dom";
 import {Link} from "react-router-dom";
+import {DownOutlined} from "@ant-design/icons";
 
 function Header() {
     // render() {
@@ -16,9 +17,26 @@ function Header() {
     }
 
     //使用教程
-    function handleUseClick() {
-        window.open("https://go.runba.cyou/doc/#/Windows/V2RayN", "_blank");
+    function handleUseClick(e) {
+        switch (e.key) {
+            case 'pictureTeach':
+                window.open("https://go.runba.cyou/doc/#/Windows/V2RayN", "_blank");
+                break;
+            case 'videoTeach':
+                window.open("https://leanoss.fuwenhao.club/pskYHbVyLATuWyRzOHlmFWxJzuPjNQzR/Mac%E7%B3%BB%E7%BB%9F%E4%B8%8B%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8ClassX%E7%99%BB%E5%BD%95VPN%E8%B4%A6%E5%8F%B7%E4%BD%BF%E7%94%A8%E6%BC%94%E7%A4%BA.mp4", "_blank");
+                break;
+            default:
+                break;
+        }
     }
+
+    const TeachMenu = (
+        <Menu onClick={handleUseClick} mode={"horizontal"}>
+            <Menu.Item key="pictureTeach">图文教程</Menu.Item>
+            <Menu.Item key="videoTeach">视频教程</Menu.Item>
+        </Menu>
+    );
+
 
     return (
         <nav className="navbar navbar-expand-lg ">
@@ -43,8 +61,15 @@ function Header() {
                     <div className="navbar-nav">
                         {/*<a className="me-3 py-2 text-dark text-decoration-none" href="accounts.html">账号购买</a>*/}
                         {/*<a className="me-3 py-2 text-dark text-decoration-none" href="gpt.html">套餐购买</a>*/}
-                        <Button type="text" className="me-3 py-2 text-dark text-decoration-none buy_account_font"
-                                onClick={handleUseClick}>使用教程</Button>
+
+                        <Dropdown overlay={TeachMenu}>
+                            <a className="me-3 py-2 text-dark text-decoration-none buy_account_font"
+                               onClick={e => e.preventDefault()}>
+                                使用教程 <DownOutlined/>
+                            </a>
+                        </Dropdown>
+                        {/*<Button type="text" className="me-3 py-2 text-dark text-decoration-none buy_account_font"*/}
+                        {/*        onClick={handleUseClick}>使用教程</Button>*/}
                         <Button type="text"
                                 className="me-3 py-2 text-dark text-decoration-none buy_account_font"
                                 onClick={handleBuyClick}>账号购买</Button>
